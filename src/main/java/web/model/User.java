@@ -1,6 +1,7 @@
 package web.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "users")
@@ -11,15 +12,24 @@ public class User {
     @Column(name = "user_id", nullable = false, updatable = false, unique = true)
     private Long id;
 
+    @NotBlank(message = "First name must be defined!")
+    @Size(min = 2, max = 30, message = "First name is too short or too long!")
     @Column(name = "first_name", nullable = false)
     private String firstName;
 
+    @NotBlank(message = "Last name must be defined!")
+    @Size(min = 2, max = 30, message = "Last name is too short or too long!")
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
+    @NotBlank(message = "Email must be defined!")
+    @Email(message = "Email must be valid!")
     @Column(name = "email", nullable = false)
     private String email;
 
+    @NotNull(message = "Age must be defined!")
+    @Min(value = 14, message = "Age must not be less than 18!")
+    @Max(value = 125, message = "Age must not be more than 125!")
     @Column(name = "age", nullable = false)
     private Integer age;
 
