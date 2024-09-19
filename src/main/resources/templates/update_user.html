@@ -10,18 +10,22 @@
         <div>
             <label for="firstName">Enter new first name:</label>
             <input type="text" th:field="*{firstName}" id="firstName">
+            <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}" style="color:red"></span>
         </div>
         <div>
             <label for="lastName">Enter new last name:</label>
             <input type="text" th:field="*{lastName}" id="lastName">
+            <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}" style="color:red"></span>
         </div>
         <div>
             <label for="email">Enter new email:</label>
             <input type="text" th:field="*{email}" id="email">
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color:red"></span>
         </div>
         <div>
             <label for="age">Enter new age:</label>
             <input type="text" th:field="*{age}" id="age">
+            <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}" style="color:red"></span>
         </div>
         <br>
         <input type="submit" value="Update"/>
@@ -35,11 +39,5 @@
     <form th:method="get" th:action="@{/}" style="display:inline;">
         <button type="submit">Return to user list</button>
     </form>
-
-    <div th:if="${errors}">
-        <ul>
-            <li th:each="error : ${errors}" th:text="${error.defaultMessage}" style="color: red;"></li>
-        </ul>
-    </div>
 </body>
 </html>

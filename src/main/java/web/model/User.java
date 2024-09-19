@@ -28,7 +28,7 @@ public class User {
     private String email;
 
     @NotNull(message = "Age must be defined!")
-    @Min(value = 14, message = "Age must not be less than 18!")
+    @Min(value = 14, message = "Age must not be less than 14!")
     @Max(value = 125, message = "Age must not be more than 125!")
     @Column(name = "age", nullable = false)
     private Integer age;

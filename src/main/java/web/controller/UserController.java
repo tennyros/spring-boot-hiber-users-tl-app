@@ -23,9 +23,6 @@ public class UserController {
 
     @GetMapping(value = "/")
     public String showUsers(Model model) {
-        User user = new User("Mike", "Miners", "mike@mail.com", 30);
-        userService.addUser(user);
-//        System.out.println("Users: " + userService.getAllUsers());
         model.addAttribute("users", userService.getAllUsers());
         return "users";
     }
