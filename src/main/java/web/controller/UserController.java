@@ -37,7 +37,7 @@ public class UserController {
     public String saveUser(@Valid @ModelAttribute User user,
                            BindingResult result, Model model) {
         if (result.hasErrors()) {
-            model.addAttribute("errors", result.getFieldErrors());
+//            model.addAttribute("errors", result.getFieldErrors());
             return "new_user";
         }
         userService.addUser(user);
@@ -51,10 +51,10 @@ public class UserController {
     }
 
     @PostMapping(value = "/update")
-    public String updateUser(@Valid @ModelAttribute User user,
+    public String updateUser(@Valid @ModelAttribute("user") User user,
                              BindingResult result, Model model) {
         if (result.hasErrors()) {
-            model.addAttribute("errors", result.getFieldErrors());
+//            model.addAttribute("errors", result.getFieldErrors());
             return "update_user";
         }
         userService.updateUser(user);
